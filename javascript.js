@@ -22,23 +22,27 @@ function display() {
     let numberButtons = document.querySelectorAll(".number-btn");
     let operateButtons = document.querySelectorAll(".operation-btn");
     let display = document.querySelector(".display");
-    let value = 0;
+    let inputValue = 0;
+    let tempValue = 0;
     let operation = '';
     
     numberButtons.forEach(button => { button.addEventListener('click', () => {
         display.textContent = button.textContent;
-        value = button.textContent;
+        inputValue = button.textContent;
+
     });
 });
 
     operateButtons.forEach(button => { button.addEventListener('click', () => {
         let operator = button.textContent;
-        console.log(operator);
+        tempValue = inputValue;
+        console.log(tempValue);
 
 
     });
 });
 
 }
+
 
 display();
