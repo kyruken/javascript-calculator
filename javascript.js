@@ -1,24 +1,28 @@
-function add(operand1, operand2) {
-    let sum = operand1 + operand2;
-    return sum;
+function add(...args) {
+    return args.reduce(function(total, nextNumber) {
+        return total + nextNumber;
+    })
 }
 
-function subtract(operand1, operand2) {
-    let difference = operand1 - operand2;
-    return difference;
+function subtract(...args) {
+    return args.reduce(function(total, nextNumber) {
+        return total - nextNumber;
+    })
 }
 
-function multiply(operand1, operand2) {
-    let product = operand1 * operand2;
-    return product;
+function multiply(...args) {
+    return args.reduce(function(total, nextNumber) {
+        return total * nextNumber;
+    })
 }
 
-function divide(operand1, operand2) {
-    let quotient = operand1 / operand2;
-    return quotient;
+function divide(...args) {
+    return args.reduce(function(total, nextNumber) {
+        return total / nextNumber;
+    })
 }
 
-function operate(operator, operand1, operand2) {
+function operate(operator, operand) {
     if (operator === "+") {
         add(operand1, operand2);
     }
