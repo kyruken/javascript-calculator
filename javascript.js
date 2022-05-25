@@ -35,3 +35,16 @@ function operate(operator, operand1, operand2) {
         divide(operand1, operand2);
     }
 }
+
+function display() {
+    let buttons = document.querySelectorAll(".number-btn");
+    let display = document.querySelector(".display");
+    
+    buttons.forEach(button => { button.addEventListener('click', () => {
+        display.textContent = button.textContent;
+    });
+});
+
+}
+
+display();
