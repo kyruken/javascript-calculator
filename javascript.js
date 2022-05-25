@@ -1,53 +1,41 @@
-function add(...args) {
-    return args.reduce(function(total, nextNumber) {
-        return total + nextNumber;
-    })
+function add(operand1, operand2) {
+    return operand1 + operand2;
 }
 
-function subtract(...args) {
-    return args.reduce(function(total, nextNumber) {
-        return total - nextNumber;
-    })
+function subtract(operand1, operand2) {
+    return operand1 - operand2;
 }
 
-function multiply(...args) {
-    return args.reduce(function(total, nextNumber) {
-        return total * nextNumber;
-    })
+function multiply(operand1, operand2) {
+    return operand1 * operand2;
 }
 
-function divide(...args) {
-    return args.reduce(function(total, nextNumber) {
-        return total / nextNumber;
-    })
+function divide(operand1, operand2) {
+    return operand1 / operand2;
 }
 
-function operate(operator, operand) {
-    if (operator === "+") {
-        add(operand1, operand2);
-    }
+function operate(operator, operand1, operand2) {
 
-    if (operator === "-") {
-        subtract(operand1, operand2);
-    }
-
-    if (operator === "*") {
-        multiply(operand1, operand2);
-    }
-
-    if (operator === "/") {
-        divide(operand1, operand2);
-    }
 }
 
 function display() {
-    let buttons = document.querySelectorAll(".number-btn");
+    let numberButtons = document.querySelectorAll(".number-btn");
+    let operateButtons = document.querySelectorAll(".operation-btn");
     let display = document.querySelector(".display");
     let value = 0;
+    let operation = '';
     
-    buttons.forEach(button => { button.addEventListener('click', () => {
+    numberButtons.forEach(button => { button.addEventListener('click', () => {
         display.textContent = button.textContent;
         value = button.textContent;
+    });
+});
+
+    operateButtons.forEach(button => { button.addEventListener('click', () => {
+        let operator = button.textContent;
+        console.log(operator);
+
+
     });
 });
 
