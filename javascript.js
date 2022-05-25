@@ -43,6 +43,7 @@ function display() {
     let display = document.querySelector(".display");
     let inputValue = 0;
     let tempValue = 0;
+    let totalValue = 0;
     let operation = '';
     
     numberButtons.forEach(button => { button.addEventListener('click', () => {
@@ -53,10 +54,13 @@ function display() {
 });
 
     operateButtons.forEach(button => { button.addEventListener('click', () => {
+        if (tempValue > 0 && inputValue > 0) {
+            totalValue += operate(operation, tempValue, inputValue);
+            display.textContent = totalValue;
+        }
         let operator = button.textContent;
         operation = operator;
         tempValue = inputValue;
-        console.log(tempValue);
 
 
     });
