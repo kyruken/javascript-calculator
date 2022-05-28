@@ -55,20 +55,21 @@ function displayNumbers() {
     let inputToggle = true;
     
     numberButtons.forEach(button => { button.addEventListener('click', () => {
+        clearScreen();
         display.textContent += button.textContent;
 
     });
 });
 
     operateButtons.forEach(button => { button.addEventListener('click', () => {
-        console.log(display.textContent);
+
         inputValue = Number(display.textContent);
-        clearScreen();
         let operator = button.textContent;
         operation = operator;
-        if (inputValue > 0) {
-            tempValue = inputValue;
-        }
+        tempValue = inputValue;
+
+        totalValue += (operation, tempValue, inputValue);
+        display.textContent = totalValue;
 
     });
 
@@ -77,11 +78,9 @@ function displayNumbers() {
     equalButton.addEventListener('click', () => {
         inputValue = Number(display.textContent);
         if (totalValue === 0) {
-            console.log("yolo");
             totalValue += operate(operation, tempValue, inputValue);
         }
         else {
-            console.log("swag");
             totalValue = operate(operation, totalValue, inputValue);
         }
         display.textContent = totalValue;
