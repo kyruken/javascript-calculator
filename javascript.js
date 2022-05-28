@@ -56,17 +56,24 @@ function display() {
     operateButtons.forEach(button => { button.addEventListener('click', () => {
         let operator = button.textContent;
         operation = operator;
-        if(inputValue > 0) {
-            tempValue += Number(inputValue);
+        if (inputValue > 0) {
+            tempValue = inputValue;
         }
-
 
     });
 
 });
 
     equalButton.addEventListener('click', () => {
-        display.textContent = operate(operation, tempValue, inputValue);
+        if (totalValue === 0) {
+            console.log("yolo");
+            totalValue += operate(operation, tempValue, inputValue);
+        }
+        else {
+            console.log("swag");
+            totalValue = operate(operation, totalValue, inputValue);
+        }
+        display.textContent = totalValue;
         
 
     });
