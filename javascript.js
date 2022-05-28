@@ -52,17 +52,21 @@ function displayNumbers() {
     let tempValue = 0;
     let totalValue = 0;
     let operation = '';
-    let inputToggle = true;
+    let inputToggle = false;
     
     numberButtons.forEach(button => { button.addEventListener('click', () => {
-        clearScreen();
+        //Clears screen if an operator is pressed
+        if (inputToggle === true) {
+            clearScreen();
+            inputToggle = false;
+        }
         display.textContent += button.textContent;
 
     });
 });
 
     operateButtons.forEach(button => { button.addEventListener('click', () => {
-
+        inputToggle = true;
         inputValue = Number(display.textContent);
         let operator = button.textContent;
         operation = operator;
