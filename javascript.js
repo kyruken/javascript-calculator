@@ -1,3 +1,6 @@
+
+let display = document.querySelector(".display");
+
 function add(operand1, operand2) {
     return Number(operand1) + Number(operand2);
 }
@@ -35,25 +38,32 @@ function operate(operator, operand1, operand2) {
 
 }
 
-function display() {
+function clearScreen() {
+    display.textContent = '';
+
+}
+
+function displayNumbers() {
     let numberButtons = document.querySelectorAll(".number-btn");
     let operateButtons = document.querySelectorAll(".operation-btn");
     let equalButton = document.querySelector(".equal-btn");
 
-    let display = document.querySelector(".display");
     let inputValue = 0;
     let tempValue = 0;
     let totalValue = 0;
     let operation = '';
+    let inputToggle = true;
     
     numberButtons.forEach(button => { button.addEventListener('click', () => {
-        display.textContent = button.textContent;
-        inputValue = button.textContent;
+        display.textContent += button.textContent;
 
     });
 });
 
     operateButtons.forEach(button => { button.addEventListener('click', () => {
+        console.log(display.textContent);
+        inputValue = Number(display.textContent);
+        clearScreen();
         let operator = button.textContent;
         operation = operator;
         if (inputValue > 0) {
@@ -65,6 +75,7 @@ function display() {
 });
 
     equalButton.addEventListener('click', () => {
+        inputValue = Number(display.textContent);
         if (totalValue === 0) {
             console.log("yolo");
             totalValue += operate(operation, tempValue, inputValue);
@@ -81,4 +92,4 @@ function display() {
 }
 
 
-display();
+displayNumbers();
