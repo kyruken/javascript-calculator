@@ -46,7 +46,7 @@ function displayNumbers() {
     let numberButtons = document.querySelectorAll(".number-btn");
     let operateButtons = document.querySelectorAll(".operation-btn");
     let equalButton = document.querySelector(".equal-btn");
-    let clearButton = document.querySelector(".clear-btn")
+    let clearButton = document.querySelector(".clear-btn");
 
     let inputValue = 0;
     let tempValue = 0;
@@ -88,7 +88,17 @@ function displayNumbers() {
             totalValue = operate(operation, totalValue, inputValue);
         }
         display.textContent = totalValue;
-        
+
+    });
+
+    clearButton.addEventListener('click', () => {
+        totalValue = 0;
+        tempValue = 0;
+        inputValue = 0;
+
+        clearScreen();
+
+
 
     });
 
