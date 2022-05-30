@@ -1,3 +1,13 @@
 .calculator-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: auto;
+    flex-flow: row wrap;
+    border: 1px solid blue;
+}
+
+.display {
+    width: 100%;
 }
