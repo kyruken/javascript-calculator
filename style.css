@@ -15,7 +15,9 @@ button {
 }
 
 .display {
+    background-color: #fff;
     width: 100%;
+    margin-left: 35px;
 }
 
 .number-btn,
