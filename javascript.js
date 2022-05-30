@@ -42,7 +42,7 @@ function clearScreen() {
 
 }
 
-function displayNumbers() {
+function calculatorDisplay() {
     let numberButtons = document.querySelectorAll(".number-btn");
     let operateButtons = document.querySelectorAll(".operation-btn");
     let equalButton = document.querySelector(".equal-btn");
@@ -55,6 +55,9 @@ function displayNumbers() {
     let inputToggle = false;
 
     function calculate() {
+        //When we calculate, we want to use a new inputValue with a previously set tempValue
+        //ex: 12 + 7 - ===> inputValue = 7, tempValue = 12, totalValue = 19; 
+        inputValue = Number(display.textContent);
         if (totalValue === 0 && tempValue === 0) {
             totalValue += operate(operation, tempValue, inputValue);
         }
@@ -62,55 +65,59 @@ function displayNumbers() {
             totalValue = operate(operation, totalValue, inputValue);
         }
     }
-    
-    numberButtons.forEach(button => { button.addEventListener('click', () => {
-        //Clears screen if an operator is pressed
-        if (inputToggle === true) {
-            clearScreen();
-            inputToggle = false;
-        }
-        display.textContent += button.textContent;
+
+    function createButtonEvents() {
+        
+        numberButtons.forEach(button => { button.addEventListener('click', () => {
+            //Clears screen if an operator is pressed
+            if (inputToggle === true) {
+                clearScreen();
+                inputToggle = false;
+            }
+            // += allows user input to be multiple digits
+            display.textContent += button.textContent;
+
+        });
+    });
+
+        operateButtons.forEach(button => { button.addEventListener('click', () => {
+            calculate();
+
+            //After calculate runs, we set the next operation and also make tempValue into the recent inputValue
+            inputToggle = true;
+            let operator = button.textContent;
+            operation = operator;
+            tempValue = inputValue;
+
+            //we use if statement to stop display in beginning, "12 + ===> display is 0"
+            if(totalValue > 0) {
+                display.textContent = totalValue;
+            }
+
+        });
 
     });
-});
 
-    operateButtons.forEach(button => { button.addEventListener('click', () => {
-        inputValue = Number(display.textContent);
-        calculate();
-
-        inputToggle = true;
-        let operator = button.textContent;
-        operation = operator;
-        tempValue = inputValue;
-
-        if(totalValue > 0) {
+        equalButton.addEventListener('click', () => {
+            calculate();
             display.textContent = totalValue;
-        }
 
-    });
+        });
 
-});
+        clearButton.addEventListener('click', () => {
+            inputValue = 0;
+            tempValue = 0;
+            totalValue = 0;
+            operation = '+';
+            inputToggle = false;
 
-    equalButton.addEventListener('click', () => {
-        inputValue = Number(display.textContent);
-        calculate();
-        display.textContent = totalValue;
+            clearScreen();
+        });
 
-    });
-
-    clearButton.addEventListener('click', () => {
-        totalValue = 0;
-        tempValue = 0;
-        inputValue = 0;
-        operation = '+';
-        inputToggle = false;
-
-        clearScreen();
-    });
-
-
+    }
+    createButtonEvents();
 
 }
 
 
-displayNumbers();
+calculatorDisplay();
