@@ -51,8 +51,17 @@ function displayNumbers() {
     let inputValue = 0;
     let tempValue = 0;
     let totalValue = 0;
-    let operation = '';
+    let operation = '+';
     let inputToggle = false;
+
+    function calculate() {
+        if (totalValue === 0 && tempValue === 0) {
+            totalValue += operate(operation, tempValue, inputValue);
+        }
+        else {
+            totalValue = operate(operation, totalValue, inputValue);
+        }
+    }
     
     numberButtons.forEach(button => { button.addEventListener('click', () => {
         //Clears screen if an operator is pressed
@@ -66,14 +75,17 @@ function displayNumbers() {
 });
 
     operateButtons.forEach(button => { button.addEventListener('click', () => {
-        inputToggle = true;
         inputValue = Number(display.textContent);
+        calculate();
+
+        inputToggle = true;
         let operator = button.textContent;
         operation = operator;
         tempValue = inputValue;
 
-        totalValue += (operation, tempValue, inputValue);
-        display.textContent = totalValue;
+        if(totalValue > 0) {
+            display.textContent = totalValue;
+        }
 
     });
 
@@ -81,12 +93,7 @@ function displayNumbers() {
 
     equalButton.addEventListener('click', () => {
         inputValue = Number(display.textContent);
-        if (totalValue === 0) {
-            totalValue += operate(operation, tempValue, inputValue);
-        }
-        else {
-            totalValue = operate(operation, totalValue, inputValue);
-        }
+        calculate();
         display.textContent = totalValue;
 
     });
@@ -95,11 +102,10 @@ function displayNumbers() {
         totalValue = 0;
         tempValue = 0;
         inputValue = 0;
+        operation = '+';
+        inputToggle = false;
 
         clearScreen();
-
-
-
     });
 
 
