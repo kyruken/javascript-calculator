@@ -8,7 +8,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50vw;
+    width: 60vw;
     gap: 10px;
     flex-flow: row wrap;
     border: 1px solid blue;
@@ -18,9 +18,24 @@ button {
     width: 100%;
 }
 
-.number-btn {
-    width: 25%;
+.number-btn,
+.operation-btn,
+.clear-btn,
+.equal-btn {
+    width: 20%;
     height: 50px;
     background-color: gray;
 
+}
+
+#number-0 {
+    width: 64%;
+}
+
+.clear-btn {
+    width: 64%;
+}
+
+.operation-btn {
+    background-color: yellow;
 }
