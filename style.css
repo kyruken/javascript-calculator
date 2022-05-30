@@ -8,8 +8,8 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40vw;
-    height: auto;
+    width: 50vw;
+    gap: 10px;
     flex-flow: row wrap;
     border: 1px solid blue;
 }
@@ -18,3 +18,9 @@ button {
     width: 100%;
 }
 
+.number-btn {
+    width: 25%;
+    height: 50px;
+    background-color: gray;
+
+}
