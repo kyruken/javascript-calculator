@@ -1,4 +1,3 @@
-
 let display = document.querySelector(".display");
 
 function add(operand1, operand2) {
@@ -47,6 +46,7 @@ function displayNumbers() {
     let numberButtons = document.querySelectorAll(".number-btn");
     let operateButtons = document.querySelectorAll(".operation-btn");
     let equalButton = document.querySelector(".equal-btn");
+    let clearButton = document.querySelector(".clear-btn")
 
     let inputValue = 0;
     let tempValue = 0;
@@ -91,6 +91,8 @@ function displayNumbers() {
         
 
     });
+
+
 
 }
 
