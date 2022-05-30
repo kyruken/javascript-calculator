@@ -75,6 +75,9 @@ function calculatorDisplay() {
                 inputToggle = false;
             }
             // += allows user input to be multiple digits
+            if (display.textContent == '0') {
+                clearScreen();
+            }
             display.textContent += button.textContent;
 
         });
@@ -112,6 +115,7 @@ function calculatorDisplay() {
             inputToggle = false;
 
             clearScreen();
+            display.textContent = '0';
         });
 
     }
