@@ -9,15 +9,19 @@ button {
     justify-content: center;
     align-items: center;
     width: 60vw;
-    gap: 10px;
+    gap: 8px;
     flex-flow: row wrap;
     border: 1px solid blue;
 }
 
 .display {
-    background-color: #fff;
-    width: 100%;
-    margin-left: 35px;
+    background-color: rgb(183, 174, 174);
+    width: 80%;
+    height: 50px;
+    font-size: 30px;
+    text-align: end;
+    padding-top: 20px;
+    padding-right: 28px;
 }
 
 .number-btn,
