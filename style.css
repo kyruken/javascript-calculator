@@ -4,44 +4,59 @@ button {
     border: 0;
 }
 
+
 .calculator-container {
+    background-color: rgb(79, 46, 46);
+    border: 3px solid black;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 60vw;
+    width: 500px;
     gap: 8px;
+    padding: 20px 0;
+    margin: auto;
+    margin-top: 75px;
     flex-flow: row wrap;
-    border: 1px solid blue;
 }
 
 .display {
-    background-color: rgb(183, 174, 174);
+    background-color: rgb(235, 224, 224);
+    border: 5px solid black;
+    border-radius: 15px;
     width: 80%;
     height: 50px;
     font-size: 30px;
     text-align: end;
     padding-top: 20px;
-    padding-right: 28px;
+    padding-right: 23px;
 }
 
 .number-btn,
 .operation-btn,
 .clear-btn,
 .equal-btn {
+    font-size: 22px;
+    font-weight: 600;
     width: 20%;
-    height: 50px;
-    background-color: gray;
+    height: 70px;
+    background-color: rgb(234, 222, 222);
+    border-radius: 15px;
 
 }
 
 #number-0 {
-    width: 64%;
+    width: 63%;
 }
 
 .clear-btn {
-    width: 64%;
+    width: 63%;
+    background-color: rgb(162, 162, 243);
 }
 
 .operation-btn {
     background-color: yellow;
+}
+
+.equal-btn {
+    background-color: rgb(88, 236, 88);
 }
