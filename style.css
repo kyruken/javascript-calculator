@@ -1,3 +1,9 @@
+button {
+    padding: 0;
+    margin 0;
+    border: 0;
+}
+
 .calculator-container {
     display: flex;
     justify-content: center;
@@ -11,3 +17,4 @@
 .display {
     width: 100%;
 }
+
